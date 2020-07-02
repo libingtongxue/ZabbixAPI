@@ -38,7 +38,6 @@ namespace Class
             };
             byte[] postBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(zabbixRequest));
             ZabbixResponse zabbixResponse = JsonConvert.DeserializeObject<ZabbixResponse>(Request(postBytes));
-            //Console.WriteLine(JsonConvert.SerializeObject(zabbixResponse));
             if (!string.IsNullOrEmpty(zabbixResponse.Result.ToString()))
             {
                 ZabbixAPILoginAuthStr = zabbixResponse.Result.ToString();
@@ -62,7 +61,6 @@ namespace Class
             };
             byte[] postBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(zabbixRequest));
             ZabbixResponse zabbixResponse = JsonConvert.DeserializeObject<ZabbixResponse>(Request(postBytes));
-            //Console.WriteLine(JsonConvert.SerializeObject(zabbixResponse));
             return Boolean.Parse(zabbixResponse.Result.ToString());
         }
         public string ZabbixVersion()
@@ -76,7 +74,6 @@ namespace Class
             };
             byte[] postBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(zabbixRequest));
             ZabbixResponse zabbixResponse = JsonConvert.DeserializeObject<ZabbixResponse>(Request(postBytes));
-            //Console.WriteLine(JsonConvert.SerializeObject(zabbixResponse));
             return zabbixResponse.Result.ToString();
         }
         public string Request(byte[] postBytes)
